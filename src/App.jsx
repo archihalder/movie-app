@@ -2,12 +2,20 @@ import {useState} from "react";
 
 const Card = ({title}) => {
     const [hasLiked, setHasLiked] = useState(false);
+    const [hasWatched, setHasWatched] = useState(false);
+
     return (
         <div className="card">
             <h3>{title}</h3>
-            <button onClick={() => setHasLiked(!hasLiked)}>
-                {hasLiked ? "❤️" : "🤍"}
-            </button>
+            <div className="button-container">
+                <button className="like-button" onClick={() => setHasLiked(!hasLiked)}>
+                    {hasLiked ? "❤️" : "🤍"}
+                </button>
+                <button className="watch-button" onClick={() => setHasWatched(!hasWatched)}>
+                    {hasWatched ? "Watched" : "Add to Watchlist"}
+                </button>
+            </div>
+
         </div>
     );
 };
